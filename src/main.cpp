@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <receiver.h>
+#include "receiver.h"
 
 #define RF_PIN D1
 
@@ -8,8 +8,8 @@ volatile int pulses[MAX_PULSES];
 volatile size_t pulseIndex;
 volatile int lastTime;
 
-Frame frame;
-Receiver receiver;
+static Frame frame;
+static Receiver receiver;
 
 static void getFrame()
 {
@@ -24,7 +24,7 @@ static void getFrame()
 	Serial.print(", control code=");
 	Serial.print(frame.controlCode, HEX);
 	Serial.print(", rolling code=");
-	Serial.println(frame.rollingCode, HEX);
+	Serial.println(frame.rollingCode);
 }
 
 ICACHE_RAM_ATTR void pinChanged()
