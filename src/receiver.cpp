@@ -48,7 +48,7 @@ void Receiver::reset()
 
 void Receiver::hwSyncPulse(int pulse)
 {
-	if (pulse > 2304 && pulse < 2816)
+	if (pulse > 1792 && pulse < 3328)
 		state++;
 	else
 		reset();
@@ -56,7 +56,7 @@ void Receiver::hwSyncPulse(int pulse)
 
 void Receiver::swSyncPulse1(int pulse)
 {
-	if (pulse > 4032 && pulse < 4928)
+	if (pulse > 3136 && pulse < 5824)
 		state++;
 	else
 		reset();
